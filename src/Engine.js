@@ -12,7 +12,7 @@ var Engine = function () {
     };
     this.getPlateau = function () {
         return plateau;
-    }
+    };
     // vide 0 , blanc 1 , bleu 2 , vert 3 , jaune 4 , rouge 5 , noir 6
     this.initTableau = function (plateauInit) {
         var cordX;
@@ -27,28 +27,41 @@ var Engine = function () {
     };
 
     this.plateauCorrect = function () {
+        if (this.plateauCorrectHorizontale() && this.plateauCorrectVerticale()) {
+            return true;
+        }
+        return false;
+    };
+
+    this.plateauCorrectHorizontale = function () {
         var cordX;
         var cordY;
         var pieceAvantHorizontale;
-        var pieceAvantVerticale = -1;
 
         for (cordX = 0; cordX < taillePlateauLigne; cordX += 1) {
             pieceAvantHorizontale = -1;
-            pieceAvantVerticale = -1;
             for (cordY = 0; cordY < taillePlateauLigne; cordY += 1) {
                 // GESTION HORIZONTALE
                 if (plateau[cordX][cordY] === pieceAvantHorizontale) {
-
                     return false;
-                }else{
+                }else {
                     pieceAvantHorizontale = plateau[cordX][cordY];
                 }
-                pieceAvantHorizontale = plateau[cordX][cordY];
-                // GESTION VERTICALE
+            }
+        }
+        return true;
+    };
+    this.plateauCorrectVerticale = function () {
+        var cordX;
+        var cordY;
+        var pieceAvantVerticale;
+        for (cordX = 0; cordX < taillePlateauLigne; cordX += 1) {
+            pieceAvantVerticale = -1;
+            for (cordY = 0; cordY < taillePlateauLigne; cordY += 1) {
+                // GESTION HORIZONTALE
                 if (cordX !== 0 && plateau[cordX][cordY] === pieceAvantVerticale){
-
                     return false;
-                }else{
+                } else {
                     pieceAvantVerticale = plateau[cordX][cordY];
                 }
             }
