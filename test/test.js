@@ -20,3 +20,6 @@ PalettoTestCase.prototype.testStory1 = function () {
 
 };
 
+PalettoTestCase.prototype.testStory2 = function () {
+    assertEquals(eng.getJoueurs()[0].getBillesPossedees()[0], 4);
+}
