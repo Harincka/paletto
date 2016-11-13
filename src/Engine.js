@@ -24,6 +24,7 @@ var Engine = function () {
     var taillePlateau = taillePlateauLigne * taillePlateauLigne;
     var joueurs = [];
     joueurs[0] = new Joueur();
+    var nbBilles = taillePlateau;
 
 // public methods
     this.tailleTableau = function () {
@@ -96,8 +97,16 @@ var Engine = function () {
         var cordY = positionBille.charCodeAt(0) - 65;
         var cordX = positionBille.charAt(1) - 1;
         joueurs[joueur].getBillesPossedees()[0] = plateau[cordX][cordY];
-    };
+        plateau[cordX][cordY] = 0;
+        nbBilles -= 1;
 
+    };
+    this.nbPiece = function () {
+        return nbBilles;
+    };
+    this.getPlateauByCord = function (x, y) {
+        return plateau[x][y];
+    }
     this.affichage = function () {
         var chaine;
         var cordX;

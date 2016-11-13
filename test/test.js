@@ -34,7 +34,7 @@ PalettoTestCase.prototype.testStory2 = function () {
     assertEquals(eng.getJoueurs()[0].getBillesPossedees()[0], 4);
 }
 PalettoTestCase.prototype.testStory3 = function () {
-    assertEquals(eng.getPlateauByCord(), 0);
+    assertEquals(eng.getPlateauByCord(5, 0), 0);
     assertEquals(eng.nbPiece(), 35);
-    assertEquals(eng.getJoueurs[0].billesPossedees[0], 4);
+    assertEquals(eng.getJoueurs()[0].getBillesPossedees()[0], 4);
 };
