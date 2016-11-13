@@ -1,17 +1,39 @@
 'use strict';
 
+var Joueur = function () {
+    // private attributes and methods
+    var numeroJoueur = 0;
+    var billesPossedees = [];
+
+    //public methods
+
+    this.getNumeroJoueur = function () {
+        return numeroJoueur;
+    };
+
+    this.getBillesPossedees = function () {
+        return billesPossedees;
+    };
+};
+
 var Engine = function () {
 
 // private attributes and methods
     var plateau = [];
     var taillePlateauLigne = 6;
     var taillePlateau = taillePlateauLigne * taillePlateauLigne;
+    var joueurs = [];
+    joueurs[0] = new Joueur();
+
 // public methods
     this.tailleTableau = function () {
         return taillePlateau;
     };
     this.getPlateau = function () {
         return plateau;
+    };
+    this.getJoueurs = function () {
+        return joueurs;
     };
     // vide 0 , blanc 1 , bleu 2 , vert 3 , jaune 4 , rouge 5 , noir 6
     this.initTableau = function (plateauInit) {
@@ -51,6 +73,7 @@ var Engine = function () {
         }
         return true;
     };
+
     this.plateauCorrectVerticale = function () {
         var cordX;
         var cordY;
@@ -68,6 +91,13 @@ var Engine = function () {
         }
         return true;
     };
+
+    this.choixBille = function (joueur, positionBille) {
+        var cordY = positionBille.charCodeAt(0) - 65;
+        var cordX = positionBille.charAt(1) - 1;
+        joueurs[joueur].getBillesPossedees()[0] = plateau[cordX][cordY];
+    };
+
     this.affichage = function () {
         var chaine;
         var cordX;

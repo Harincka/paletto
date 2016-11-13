@@ -21,5 +21,16 @@ PalettoTestCase.prototype.testStory1 = function () {
 };
 
 PalettoTestCase.prototype.testStory2 = function () {
+    var plateauInit = [];
+    plateauInit.push([6, 3, 1, 2, 5, 1]);
+    plateauInit.push([4, 1, 3, 5, 4, 2]);
+    plateauInit.push([2, 4, 2, 1, 6, 5]);
+    plateauInit.push([5, 6, 5, 3, 2, 1]);
+    plateauInit.push([1, 3, 4, 6, 4, 3]);
+    plateauInit.push([4, 2, 6, 5, 3, 6]);
+
+    assertEquals(eng.initTableau(plateauInit), true);
+
+    eng.choixBille(0, "A6");
     assertEquals(eng.getJoueurs()[0].getBillesPossedees()[0], 4);
 }
