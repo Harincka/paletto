@@ -20,3 +20,8 @@ PalettoTestCase.prototype.testStory1 = function () {
 
 };
 
+PalettoTestCase.prototype.testStory3 = function () {
+    assertEquals(eng.getPlateauByCord(), 0);
+    assertEquals(eng.nbPiece(), 35);
+    assertEquals(eng.getJoueurs[0].billesPossedees[0], 4);
+};
