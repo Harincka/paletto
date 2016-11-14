@@ -31,10 +31,15 @@ PalettoTestCase.prototype.testStory2 = function () {
     assertEquals(eng.initTableau(plateauInit), true);
     eng.choixBille(0, "A6");
     assertEquals(eng.getJoueurs()[0].getBillesPossedees()[0], 4);
-}
+};
 
 PalettoTestCase.prototype.testStory3 = function () {
     assertEquals(eng.getPlateauByCord(5, 0), 0);
     assertEquals(eng.nbPiece(), 35);
     assertEquals(eng.getJoueurs()[0].getBillesPossedees()[0], 4);
+};
+
+PalettoTestCase.prototype.testStory4() = function () {
+    assertEquals(eng.choixCouleur(6),true);
+    assertEquals(eng.getJoueurs()[1].getBillesPossedees()[6], 2);
 };

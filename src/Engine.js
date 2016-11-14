@@ -24,6 +24,7 @@ var Engine = function () {
     var taillePlateau = taillePlateauLigne * taillePlateauLigne;
     var joueurs = [];
     joueurs[0] = new Joueur();
+    joueurs[1] = new Joueur();
     var nbBilles = taillePlateau;
 
 // public methods
