@@ -19,7 +19,6 @@ PalettoTestCase.prototype.testStory1 = function () {
     assertEquals(eng.plateauCorrect(), true);
 
 };
-
 PalettoTestCase.prototype.testStory2 = function () {
     var plateauInit = [];
     plateauInit.push([6, 3, 1, 2, 5, 1]);
@@ -30,7 +29,12 @@ PalettoTestCase.prototype.testStory2 = function () {
     plateauInit.push([4, 2, 6, 5, 3, 6]);
 
     assertEquals(eng.initTableau(plateauInit), true);
-
     eng.choixBille(0, "A6");
     assertEquals(eng.getJoueurs()[0].getBillesPossedees()[0], 4);
 }
+
+PalettoTestCase.prototype.testStory3 = function () {
+    assertEquals(eng.getPlateauByCord(5, 0), 0);
+    assertEquals(eng.nbPiece(), 35);
+    assertEquals(eng.getJoueurs()[0].getBillesPossedees()[0], 4);
+};
